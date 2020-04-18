@@ -1,4 +1,18 @@
-INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
+CREATE TABLE public.states
+(
+    id integer NOT NULL DEFAULT,
+    name character varchar(30) NOT NULL,
+    countryid integer NOT NULL,
+    created_on timestamp without time zone,
+    updated_on timestamp without time zone,
+    CONSTRAINT states_pkey PRIMARY KEY (id),
+    CONSTRAINT states_countryid_fkey FOREIGN KEY (countryid)
+        REFERENCES public.countries (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE CASCADE
+);
+
+INSERT INTO states (id, name, countryid) VALUES
 (1, 'Andaman and Nicobar Islands', 101),
 (2, 'Andhra Pradesh', 101),
 (3, 'Arunachal Pradesh', 101),
@@ -108,8 +122,8 @@ INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
 (107, 'Tirane', 2),
 (108, 'Tropoje', 2),
 (109, 'Vlore', 2),
-(110, '''Ayn Daflah', 3),
-(111, '''Ayn Tamushanat', 3),
+(110, 'Ayn Daflah', 3),
+(111, 'Ayn Tamushanat', 3),
 (112, 'Adrar', 3),
 (113, 'Algiers', 3),
 (114, 'Annabah', 3),
@@ -139,8 +153,8 @@ INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
 (138, 'Qustantinah', 3),
 (139, 'Sakikdah', 3),
 (140, 'Satif', 3),
-(141, 'Sayda''', 3),
-(142, 'Sidi ban-al-''Abbas', 3),
+(141, 'Sayda', 3),
+(142, 'Sidi ban-al-Abbas', 3),
 (143, 'Suq Ahras', 3),
 (144, 'Tamanghasat', 3),
 (145, 'Tibazah', 3),
@@ -158,7 +172,7 @@ INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
 (157, 'Wilaya de Constantine', 3),
 (158, 'al-Aghwat', 3),
 (159, 'al-Bayadh', 3),
-(160, 'al-Jaza''ir', 3),
+(160, 'al-Jazair', 3),
 (161, 'al-Wad', 3),
 (162, 'ash-Shalif', 3),
 (163, 'at-Tarif', 3),
@@ -325,7 +339,7 @@ INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
 (324, 'Ragged Island', 16),
 (325, 'Rum Cay', 16),
 (326, 'San Salvador', 16),
-(327, '''Isa', 17),
+(327, 'Isa', 17),
 (328, 'Badiyah', 17),
 (329, 'Hidd', 17),
 (330, 'Jidd Hafs', 17),
@@ -721,7 +735,7 @@ INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
 (720, 'Atacama', 43),
 (721, 'Bio Bio', 43),
 (722, 'Coquimbo', 43),
-(723, 'Libertador General Bernardo O''', 43),
+(723, 'Libertador General Bernardo O', 43),
 (724, 'Los Lagos', 43),
 (725, 'Magellanes', 43),
 (726, 'Maule', 43),
@@ -2171,7 +2185,7 @@ INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
 (2179, 'Rivercess', 123),
 (2180, 'Sinoe', 123),
 (2181, 'Ajdabiya', 124);
-INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
+INSERT INTO states (id, name, country_id) VALUES
 (2182, 'Fezzan', 124),
 (2183, 'Banghazi', 124),
 (2184, 'Darnah', 124),
@@ -4091,7 +4105,3 @@ INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
 (4118, 'Matabeleland North', 246),
 (4119, 'Matabeleland South', 246),
 (4120, 'Midlands', 246);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

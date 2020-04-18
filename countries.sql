@@ -1,4 +1,14 @@
-INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES
+CREATE TABLE public.countries
+(
+    id integer NOT NULL DEFAULT,
+    sortname character varchar(3) NOT NULL,
+    name character varchar(150) NOT NULL,
+    phonecode integer NOT NULL,
+    created_on timestamp without time zone,
+    CONSTRAINT countries_pkey PRIMARY KEY (id)
+);
+
+INSERT INTO countries(id, sortname, name, phonecode) VALUES
 (1, 'AF', 'Afghanistan', 93),
 (2, 'AL', 'Albania', 355),
 (3, 'DZ', 'Algeria', 213),
@@ -245,8 +255,3 @@ INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES
 (244, 'YU', 'Yugoslavia', 38),
 (245, 'ZM', 'Zambia', 260),
 (246, 'ZW', 'Zimbabwe', 263);
-
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
